@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Uncle Bob's Descendants Bank</title>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap'>
+  
+  <link rel="stylesheet" href="css/loginStyle.css">
+  <link rel="stylesheet" href="css/errormsg.css">
+</head>
+<body>
+
+  <!-- importing of success-error messages -->
+  <div class="success-error" id="includedContent"></div>
+
+
+  <div class="screen-1">
+
+
+    <!-- logo -->
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewbox="0 0 640 480" xml:space="preserve">
+      <g transform="matrix(3.31 0 0 3.31 320.4 240.4)">
+        <circle style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: #3a6cf4; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="40"></circle>
+      </g>
+      <g transform="matrix(0.98 0 0 0.98 268.7 213.7)">
+        <circle style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="40"></circle>
+      </g>
+      <g transform="matrix(1.01 0 0 1.01 362.9 210.9)">
+        <circle style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="40"></circle>
+      </g>
+      <g transform="matrix(0.92 0 0 0.92 318.5 286.5)">
+        <circle style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="40"></circle>
+      </g>
+      <g transform="matrix(0.16 -0.12 0.49 0.66 290.57 243.57)">
+        <polygon style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" points="-50,-50 -50,50 50,50 50,-50 "></polygon>
+      </g>
+      <g transform="matrix(0.16 0.1 -0.44 0.69 342.03 248.34)">
+        <polygon style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" points="-50,-50 -50,50 50,50 50,-50 "></polygon>
+      </g>
+    </svg>
+
+    <!-- input form -->
+    <form id="inpForm" class="main-form">
+      <!-- email -->
+      <div class="email">
+        <label for="email">Email Address</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input id = "email-val" type="email" name="email" placeholder="username@gmail.com" required>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class="password">
+        <label for="password">Password</label>
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input id="password-val" class="pas" type="password" name="password" placeholder="············" required>
+          
+          <ion-button id="password-icon">
+            <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+          </ion-button>
+        
+        </div>
+      </div>
+
+      <!-- login -->
+      <input type="submit" class="login" value="login">
+    </form>
+  
+    
+
+    <!-- Signup -->
+    <div class="footer">
+      <a href="register.html">Signup</a>
+      <a href="login.html">Forgot Password?</a>
+    </div> 
+  </div>
+  
+  <script>
+    function includeHTML(url, targetId) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const targetElement = document.getElementById(targetId);
+        targetElement.innerHTML = data;
+        
+        //execute my script (starts here)
+        const passwordIcon = document.getElementById('password-icon');
+        const formInp = document.getElementById('inpForm')
+        const emailInp = document.getElementById('email-val')
+        const passwordInp = document.getElementById('password-val');
+
+        const success_popup=document.getElementById('success');
+        const error_popup =document.getElementById('error');
+        const s_close=document.getElementById('s_button');
+        const e_close=document.getElementById('e_button');
+
+        passwordIcon.addEventListener('click', ()=>{
+          passwordInp.type = "text";
+          passwordInp.value = `${passwordInp.value}`;
+          setTimeout(()=>{
+            passwordInp.type = "password";
+            passwordInp.attributes.placeHolder.textContent = "............";
+          }, 2000);
+        });
+
+        formInp.addEventListener('submit', (event)=>{
+          event.preventDefault();
+          const username = formInp.elements['email'].value;
+          const password = formInp.elements['password'].value;
+          
+          if(username == 'admin@g.com'){
+            location.assign('adminHome.html');
+          }
+          else if(username == 'banker@g.com'){
+            location.assign('bankerHome.html');
+          }
+          else if(username == 'client@g.com'){
+            location.assign('clientHome.html');
+          }
+          else{
+            // success_popup.style.display = "block"
+            error_popup.style.display ="block";
+          }
+        });
+
+        s_close.onclick =function(){
+          success_popup.style.display="none";
+        }
+        e_close.onclick=function(){
+          error_popup.style.display="none";
+        } 
+
+        //my script ends here
+
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+
+    // Include HTML file and execute the inline script
+    includeHTML('/errormsg.html', 'includedContent');
+    
+  </script>
+ 
+  
+</body>
+</html>
