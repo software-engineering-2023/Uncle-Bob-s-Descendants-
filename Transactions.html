@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Transactions.css" />
+    <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/errormsg.css">
+    <title>Transactions</title>
+</head>
+
+<div id="includedHeader">
+   
+</div>
+
+<body>
+    
+    
+
+    <div id="includedFooter">
+        
+    </div>
+
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('/clientHeader.html', 'includedHeader');
+        includeHTML('/clientFooter.html', 'includedFooter');
+        
+    </script>
+</body>
+</html>
