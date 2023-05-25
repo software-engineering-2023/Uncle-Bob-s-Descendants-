@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #e9f3ff;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em 2em;
+    margin-bottom: 0em;
+}
+section {
+    padding: 100px 200px;
+}
+.logo{
+    text-decoration: none;
+    color: #3a6cf4;
+    font-weight: 700;
+    font-size: 1.4em;
+    
+}
+.logo hover{
+    cursor: pointer;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+}
+.logo-container .logo-img{
+    width: 1.7em;
+    height: 1.7em;
+}
+
+.navigation a{
+    color: #3a6cf4;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+}
+
+.navigation a:hover{
+    /* color: #601cfc; */
+    background-color: grey;
+
+}
+
+
+.about-us {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/images/background-about-us.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-us h1 {
+    color: #000000;
+    font-size: 3em;
+    font-weight: 800;
+}
+.about-us h3 {
+    color: #000000;
+    /* font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px; */
+}
+
+.about-us-btn {
+    color: #fff;
+    background-color: #000000;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+}
+
+.about-us-btn:hover {
+    background-color: #00081e;
+    transform: scale(1.1);
+}
+
+.about-us p{
+    color: #012429;
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-indent: 50px;
+    text-align: justify;
+    max-width: 30em;
+}
+
+
+
+
+
+.footer {
+    background-color: #000016;
+    color: #fff;
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-title {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.footer-title span {
+    color: #3a6cf4;
+}
+
+.footer .social-icons a{
+    font-size: 1.3em;
+    padding: 0 12px 0 0;
+}
