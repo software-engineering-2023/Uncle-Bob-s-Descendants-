@@ -1,0 +1,89 @@
+.navigation a:hover{
+    background-color: grey;
+
+}
+.navigation a{
+    color: #3a6cf4;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    margin-right: 60px;
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+}
+header {
+    background-color: #e9f3ff;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em 2em;
+    margin-bottom: 0em;
+}
+.logo{
+    text-decoration: none;
+    color: #3a6cf4;
+    font-weight: 700;
+    font-size: 1.4em;
+    
+}
+.logo hover{
+    cursor: pointer;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+}
+.logo-container .logo-img{
+    width: 1.7em;
+    height: 1.7em;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-top: 250px;
+    margin-left: 500px;
+    display:inline-table;
+}
+
+.styled-table thead tr {
+    background-color: #0b52d4;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #d1b61c;
+}
+
+.styled-table tbody tr:hover{
+    font-weight: bold;
+    color: #213b7b
+}
+/* .styled-table tbody tr.active-row:hover {
+    font-weight: bold;
+    color: #213b7b;
+} */
