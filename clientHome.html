@@ -9,26 +9,9 @@
     <title>OLtA Bank</title>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img class="logo-img" src="images/main_logo_transparent.png" alt="logo" class="logo">
-            <a href="clientHome.html" class="logo">OLtA Bank</a>
-        </div>
-        <nav class="navigation">
-            <div class="dropdown">
-                <a href="#services">Services</a>    
-                <div class="dropdown-content">
-                  <a href="Accounts.html" id = accounts_tab>Accounts</a>
-                  <a href="#">Transactions</a>
-                  <a href="#">Link 3</a>
-                </div>
-              </div>
-            <!-- <a href="#services">Services</a> -->
-            <a href="#reportIssues">Report Issues</a>
-            <a href="#contact">Contact Us</a>
-            <a href="login.html">Log Out</a>
-        </nav>
-    </header>
+    <div id="includedHeader">
+       
+    </div>
     <section class="about-us">
         <div>
             <h1>OLtA Bank</h1>
@@ -44,7 +27,7 @@
             
             <br>
             <br>
-            <a href="#services" class="about-us-btn">Conduct some business with us!</a>
+            <a href="Accounts.html" class="about-us-btn">Conduct some business with us!</a>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -53,16 +36,29 @@
             </div>
         </div>
     </section>
-        <footer class="footer">
-        <p class="footer-title">Copyrights &copy; <span>OLtA Team</span></p>
-        <div class="social-icons">
-            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-            <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
-        </div>
-    </footer>
 
+    <div id="includedFooter">
+        
+    </div>
+
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('/clientHeader.html', 'includedHeader');
+        includeHTML('/clientFooter.html', 'includedFooter');
+        
+    </script>
+    
 </body>
 </html>
