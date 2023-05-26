@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.css" />
+    <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/errormsg.css">
+</head>
+
+<div id="includedHeader">
+   
+</div>
+
+<body>
+
+    <!-- importing of success-error messages -->
+    <div class="success-error" id="includedContent"></div>
+
+
+    <div class="send-message">
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'normal-message')" id="defaultOpen">Contact Us</button>
+            <button class="tablinks" onclick="openTab(event, 'technical-issue')">Technical Issues</button>
+            <button class="tablinks" onclick="openTab(event, 'emergency-issue')">Credit Card Issues</button>
+        </div>
+        
+        <!-- Tab Contact Us (Normal Message) -->
+        <div id="normal-message" class="tabcontent">
+            <form class="form">
+                
+                <div class="form-group">
+                    <label for="name"><i class="far fa-user"></i>   Name</label>
+                    <input type="name" class="form-control inp-name" id="inp-name-1" placeholder="e.g. Ahmad Hoseiny" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="far fa-envelope"></i>   Email address</label>
+                    <input type="email" class="form-control inp-email" id="inp-email-1" placeholder="e.g. name@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="text-message"><i class="far fa-edit"></i>   Message</label>
+                    <textarea class="form-control inp-message" id="inp-msg-1" rows="4"
+                      placeholder="type here" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Tab Technical Issues -->
+        <div id="technical-issue" class="tabcontent">
+            <form class="form">
+                
+                <div class="form-group">
+                    <label for="name"><i class="far fa-user"></i>   Name</label>
+                    <input type="name" class="form-control inp-name" id="inp-name-2" placeholder="e.g. Ahmad Hoseiny" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="far fa-envelope"></i>   Email address</label>
+                    <input type="email" class="form-control inp-email" id="inp-email-2" placeholder="e.g. name@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="text-message"><i class="far fa-edit"></i>   Message</label>
+                    <textarea class="form-control inp-message" id="inp-msg-2" rows="4"
+                      placeholder="type a detailed description of your technical issue here" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Tab Emergency Issues -->
+        <div id="emergency-issue" class="tabcontent">
+            <form class="form">
+                
+                <div class="form-group">
+                    <label for="name"><i class="far fa-user"></i>   Name</label>
+                    <input type="name" class="form-control inp-name" id="inp-name-1" placeholder="e.g. Ahmad Hoseiny" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="far fa-envelope"></i>   Email address</label>
+                    <input type="email" class="form-control inp-email" id="inp-email-1" placeholder="e.g. name@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="card-issue">Select an issue</label>
+                    <select id="card-issue" class="form-control" required>
+                      <option selected>Select Issue</option>
+                      <option>Theft</option>
+                      <option>Lost</option>
+                      <option>Damaged</option>
+                    </select>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="text-message"><i class="far fa-edit"></i>   Message</label>
+                    <textarea class="form-control inp-message" id="inp-msg-1" rows="4"
+                    placeholder="Enter details if needed."></textarea>
+                </div>
+                
+                <div class="form-check toBeIndented">
+                    <input class="form-check-input" type="checkbox" id="checkbox" value="option1">
+                    <label class="form-check-label" for="checkbox">Apply For a new card</label>
+                </div>
+                
+                <br>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Contact & Map -->
+    <section class="p-5">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md">
+              <h2 class="text-center mb-4">Contact Us</h2>
+              <ul class="list-group list-group-flush lead">
+                <li class="list-group-item">
+                  <span class="fw-bold">Main Location:</span> 50 Oraby Street, Cairo, Egypt
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">Hotline:</span> 19800
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">FAX:</span> (123) 456-7890
+                </li>
+                <li class="list-group-item">
+                  <span class="fw-bold">Emergency Number:</span>
+                  255 0000
+                </li>
+              </ul>
+            </div>
+            <div class="col-md">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27645.940539522024!2d31.428920985200538!3d29.98682749228286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583cb2bfafbe73%3A0x6e7220116094726d!2sGerman%20University%20in%20Cairo!5e0!3m2!1sen!2seg!4v1685123459125!5m2!1sen!2seg" 
+                    width="550" height="400" style="border:0;" allowfullscreen="" 
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    <div id="includedFooter">
+        
+    </div>
+
+
+    <!-- include header and footer -->
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('/clientHeader.html', 'includedHeader');
+        includeHTML('/clientFooter.html', 'includedFooter');
+        
+    </script>
+    
+    <!-- include error/success message -->
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;
+            
+            //execute my script (starts here)
+            
+            const forms = document.getElementsByClassName('form');
+            const inpNames = document.getElementsByClassName('inp-name');
+            const inpEmails = document.getElementsByClassName('inp-email');
+            const inpMessages = document.getElementsByClassName('inp-message');
+            const inpSelect = document.getElementById('card-issue');
+            const inpCheck = document.getElementById('checkbox');
+
+            const success_popup=document.getElementById('success');
+            const error_popup =document.getElementById('error');
+            const s_close=document.getElementById('s_button');
+            const e_close=document.getElementById('e_button');
+            
+            // console.log(submitBtn);
+            // console.log(inpSelect[0].selected);
+            
+            console.lof
+            for(let i=0 ; i<forms.length ; i++){
+                const contactForm = forms[i];
+                contactForm.addEventListener('submit', (e)=>{
+                    e.preventDefault();
+                    console.log();
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Message sent successfully!"
+                    success_popup.style.display="block";
+                    success_popup.style.left="60em";
+                    
+                });
+            }
+    
+            s_close.onclick =function(){
+                success_popup.style.display="none";
+                for(var inpName of inpNames){
+                    inpName.value = '';
+                }
+                for(var inpEmail of inpEmails){
+                    inpEmail.value = '';
+                }
+                for(var inpMessage of inpMessages){
+                    inpMessage.value = '';
+                }
+                inpSelect.selectedIndex = 0;
+                inpCheck.checked = false;
+            }
+            e_close.onclick=function(){
+              error_popup.style.display="none";
+            } 
+    
+            //my script ends here
+    
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+    
+        // Include HTML file and execute the inline script
+        includeHTML('/errormsg.html', 'includedContent');
+        
+    </script>
+
+    <script src="js/contact.js"></script>
+    
+</body>
+</html>
