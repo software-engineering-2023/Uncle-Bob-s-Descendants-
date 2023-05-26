@@ -1,0 +1,244 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.table-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1em;
+    align-items: center;
+    margin-top: 1em;
+    background: url(/images/credit_card_bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-right: 30em;
+    padding-top: 7.5em;
+    padding-bottom: 5em;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    max-width: 50em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display:inline-table;
+}
+
+.styled-table thead tr {
+    background-color: #0b52d4;
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #c5d4fc;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #d1b61c;
+}
+.styled-table tbody tr td{
+    text-align: center;
+}
+
+.styled-table tbody tr td:hover{
+    font-weight: bold;
+    color: #213b7b
+}
+
+.styled-table tbody tr td a{
+    text-decoration: none;
+    color: #031a53;  
+}
+.styled-table tbody tr td a:hover{
+    font-weight: 800;
+    color: black;  
+}
+
+.add-card-inside-table {
+    color: #fff;
+    background-color: #000000;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+}
+
+.add-card-inside-table:hover {
+    background-color: #00081e;
+    transform: scale(1.1);
+}
+
+.add-card-inside-table a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.card-div{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    gap:10em;
+    align-items: center;
+    padding-top: 15em;
+    padding-bottom: 12em;
+    background-color: #cce2fc;
+}
+
+#add-card-div {
+    background: url(/images/credit_card_bg_2.png) no-repeat;
+    padding-left: 40em;
+}
+
+#card-bill-reminder-div {
+    background-color: #3a6cf4;
+}
+
+.add-pay-card {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em
+    /* gap: 5em; */
+    /* width: 70%; */
+    /* padding-right: 40em; */
+}
+
+.row {
+    color: #eee;
+    padding-top: 2em;
+}
+
+.form-control-range {
+    width: 100%
+}
+
+.form-label {
+    font-size: 1em;
+    font-weight: 600;
+    color: #eee;
+    padding-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.form {
+    background-color: #15172b;
+    border-radius: 1.25em;
+    box-sizing: border-box;
+    height: 31.25em;
+    padding: 1.25em;
+    width: 20em;
+    /* margin-top: 50px; */
+    padding-right: 1.875em;
+    padding-left: 1.875em;
+}
+ 
+.title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+}
+  
+.input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+  
+.ic1 {
+    margin-top: 40px;
+}
+  
+.ic2 {
+    margin-top: 30px;
+}
+  
+.input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+  
+  /* .cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+  }
+  
+  .cut-short {
+    width: 50px;
+  } */
+  
+  
+  /* .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  } */
+  
+  
+.submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+    transition: 0.7s ease;
+}
+  
+  /* .submit:active {
+    background-color: #06b;
+  } */
+.submit:hover {
+    background-color: #0a49f6;
+    transform: scale(1.1);
+}

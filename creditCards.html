@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/creditCards.css" />
+    <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/errormsg.css">
+    <title>Credit Cards</title>
+</head>
+
+<div id="includedHeader">
+   
+</div>
+
+<body>
+    
+    <!-- importing of success-error messages -->
+    <div class="success-error" id="includedContent"></div>
+
+
+    <div class="table-div">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Account No.</th>
+                    <th>Card No.</th>
+                    <th>Balance</th>
+                    <th>Points</th>
+                    <th>Transactions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>125279</td>
+                    <td>4321 5465 6789 1234</td>
+                    <td>6000</td>
+                    <td>230</td>
+                    <td class="Transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                </tr>
+                <tr>
+                    <td>176543</td>
+                    <td>5465 6789 1234 4321</td>
+                    <td>100000</td>
+                    <td>1000</td>
+                    <td class="Transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                </tr>
+                <tr>
+                    <td>650934</td>
+                    <td>1234 6789 5465 4321</td>
+                    <td>10000</td>
+                    <td>142</td>
+                    <td class="Transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                </tr>
+                <tr>
+                    <td>543098</td>
+                    <td>6789 1234 4321 5465</td>
+                    <td>7000</td>
+                    <td>623</td>
+                    <td class="Transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+
+        <div class="add-pay-card">
+
+            <div class="add-card-inside-table">
+                <a href="#pay-card-bill-div" >Pay your Credit Card's bill!</a>
+            </div>
+
+            <div class="add-card-inside-table">
+                <a href="#card-bill-reminder-div" >Set your Credit Card's reminder!</a>
+            </div>
+            
+            <div class="add-card-inside-table">
+                <a href="#pay-with-card-div" >Pay with a Credit Card!</a>
+            </div>
+    
+            <div class="add-card-inside-table">
+                <a href="#add-card-div" >Apply for a Credit Card!</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="pay-card-bill-div" class="card-div">
+        
+        <div class="form">
+            <div class="title">Pay your Card's bill!</div>
+            
+            <div class="input-container ic1">
+                <input id="account-name-bill" class="input" type="text" placeholder="Account Name"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="card-num-bill" class="input" type="text" placeholder="Card Number"/>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <p><span id="percentage"></span>% to pay</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="range" class="form-control-range" id="formControlRange">
+            </div>
+            
+            <button id="submit-btn-bill" type="text" class="submit">submit</button>
+        </div>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Account No.</th>
+                    <th>Card No.</th>
+                    <th>Bill</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>125279</td>
+                    <td>4321 5465 6789 1234</td>
+                    <td>6000</td>
+                    <td>230</td>
+                </tr>
+                <tr>
+                    <td>176543</td>
+                    <td>5465 6789 1234 4321</td>
+                    <td>100000</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>650934</td>
+                    <td>1234 6789 5465 4321</td>
+                    <td>10000</td>
+                    <td>142</td>
+                </tr>
+                <tr>
+                    <td>543098</td>
+                    <td>6789 1234 4321 5465</td>
+                    <td>7000</td>
+                    <td>623</td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="card-bill-reminder-div" class="card-div">
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Account No.</th>
+                    <th>Card No.</th>
+                    <th>Bill</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>125279</td>
+                    <td>4321 5465 6789 1234</td>
+                    <td>6000</td>
+                    <td>230</td>
+                </tr>
+                <tr>
+                    <td>176543</td>
+                    <td>5465 6789 1234 4321</td>
+                    <td>100000</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>650934</td>
+                    <td>1234 6789 5465 4321</td>
+                    <td>10000</td>
+                    <td>142</td>
+                </tr>
+                <tr>
+                    <td>543098</td>
+                    <td>6789 1234 4321 5465</td>
+                    <td>7000</td>
+                    <td>623</td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+        <div class="form" id="bill-reminder-form">
+            <div class="title">Set your Card's bill reminder!</div>
+
+            <div class="input-container ic1">
+                <input id="account-name-bill-reminder" class="input" type="text" placeholder="Account Name"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="card-num-bill-reminder" class="input" type="text" placeholder="Card Number"/>
+            </div>
+            
+            <div class="input-container ic1">
+                <input id="bill-reminder" class="input" type="date" placeholder="Date"/>
+            </div>
+
+            <button id="set-btn-bill-reminder" type="text" class="submit">set</button>
+        </div>
+            
+
+        
+    </div>
+
+    <div id="pay-with-card-div" class="card-div">
+
+        <div class="form">
+            <div class="title">Pay with a Credit Card!</div>
+            
+            <div class="input-container ic1">
+                <input id="account-name-pay" class="input" type="text" placeholder="Account Number"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="card-num" class="input" type="text" placeholder="Card Number"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="amount" class="input" type="text" placeholder="Amount"/>
+            </div>
+
+            <div class="input-container ic2">
+                <input id="redeem-points" class="input" type="text" placeholder="Redeem Points"/>
+            </div>
+
+            <button id="submit-btn-pay" type="text" class="submit">submit</button>
+        </div>
+
+        <div>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Account No.</th>
+                        <th>Card No.</th>
+                        <th>Bill</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>125279</td>
+                        <td>4321 5465 6789 1234</td>
+                        <td>6000</td>
+                        <td>230</td>
+                    </tr>
+                    <tr>
+                        <td>176543</td>
+                        <td>5465 6789 1234 4321</td>
+                        <td>100000</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>650934</td>
+                        <td>1234 6789 5465 4321</td>
+                        <td>10000</td>
+                        <td>142</td>
+                    </tr>
+                    <tr>
+                        <td>543098</td>
+                        <td>6789 1234 4321 5465</td>
+                        <td>7000</td>
+                        <td>623</td>
+                    </tr>
+                    <!-- and so on... -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+        
+    <div id="add-card-div" class="card-div">
+        <div class="form">
+            <div class="title">Apply for a Credit Card!</div>
+            
+            <div class="input-container ic1">
+                <input id="account-name" class="input" type="text" placeholder="Account Name"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="account-type" class="input" type="text" placeholder="Account Type"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="national-id" class="input" type="text" placeholder="National ID"/>
+            </div>
+
+            <button id="submit-btn-apply" type="text" class="submit">submit</button>
+        </div>
+    </div>
+
+
+    <div id="includedFooter">
+        
+    </div>
+
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('/clientHeader.html', 'includedHeader');
+        includeHTML('/clientFooter.html', 'includedFooter');
+        
+    </script>
+    
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;
+            
+            //execute my script (starts here)
+            const submitBtnApply = document.getElementById('submit-btn-apply');
+            const accName = document.getElementById('account-name');
+            const accType = document.getElementById('account-type');
+            const natId = document.getElementById('national-id');
+
+            const submitBtnPay = document.getElementById('submit-btn-pay');
+            const accName_pay = document.getElementById('account-name-pay');
+            const cardNum = document.getElementById('card-num');
+            const amount = document.getElementById('amount');
+
+            const submitBtnBill = document.getElementById('submit-btn-bill');
+            const accName_bill = document.getElementById('account-name-bill');
+            const cardNum_bill = document.getElementById('card-num-bill');
+            let amount_bill = '';
+
+            const range = document.getElementById('formControlRange');
+            const amount_slider = document.getElementById('percentage');
+
+            range.addEventListener('change', (e) => {
+                const percentValue = e.target.value;
+                amount_slider.textContent = percentValue;
+                amount_bill = percentValue;
+            });
+
+            const setBtnBillReminder = document.getElementById('set-btn-bill-reminder');
+            const accName_bill_reminder = document.getElementById('account-name-bill-reminder');
+            const cardNum_bill_reminder = document.getElementById('card-num-bill-reminder');
+            const date = document.getElementById('bill-reminder');
+
+            const success_popup=document.getElementById('success');
+            const error_popup =document.getElementById('error');
+            const s_close=document.getElementById('s_button');
+            const e_close=document.getElementById('e_button');
+
+            submitBtnBill.addEventListener('click', ()=>{
+
+                if(accName_bill.value=='' || cardNum_bill.value=='' || amount_bill==''){
+                    error_popup.style.display="block";       
+                }
+                else if(accName_bill.value!='' && cardNum_bill.value!='' && amount_bill!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                accName_bill.value='';
+                cardNum_bill.value='';
+                amount_bill='';
+                amount_slider.textContent = '';
+                
+            });
+
+            setBtnBillReminder.addEventListener('click', ()=>{
+
+                if(date.value=='' || accName_bill_reminder.value=='' || cardNum_bill_reminder.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(date.value!='' && accName_bill_reminder.value!='' && cardNum_bill_reminder.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+
+                accName_bill_reminder.value='';
+                cardNum_bill_reminder.value='';
+                date.value='';
+                
+            });
+
+            submitBtnApply.addEventListener('click', ()=>{
+                
+                if(accName.value=='' || accType.value=='' || natId.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(accName.value!='' && accType.value!='' && natId.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                accName.value='';
+                accType.value='';
+                natId.value='';
+                
+            });
+
+            submitBtnPay.addEventListener('click', ()=>{
+                
+                if(accName_pay.value=='' || cardNum.value=='' || amount.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(accName_pay.value!='' && cardNum.value!='' && amount.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                accName_pay.value='';
+                cardNum.value='';
+                amount.value='';
+                
+            });
+            
+    
+            s_close.onclick =function(){
+              success_popup.style.display="none";
+            }
+            e_close.onclick=function(){
+              error_popup.style.display="none";
+            } 
+    
+            //my script ends here
+    
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+    
+        // Include HTML file and execute the inline script
+        includeHTML('/errormsg.html', 'includedContent');
+        
+    </script>
+
+</body>
+
+</html>
