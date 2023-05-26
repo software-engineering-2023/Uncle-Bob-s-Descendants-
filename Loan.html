@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Loan.css" />
+    <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/errormsg.css">
+    <title>Loan</title>
+</head>
+
+<div id="includedHeader">
+   
+</div>
+
+<body>
+    
+    <!-- importing of success-error messages -->
+    <div class="success-error" id="includedContent"></div>
+
+
+    <div class="table-div">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Loan no</th>
+                    <th>req-status</th>
+                    <th>date</th>
+                    <th>type</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12344</td>
+                    <td>accepted</td>
+                    <td>28/12/2022</td>
+                    <td>car Loan</td>
+                    <td>125000</td>
+                </tr>
+                <tr>
+                    <td>22343</td>
+                    <td>pending</td>
+                    <td>19/3/2023</td>
+                    <td>Peronal Loan</td>
+                    <td>350000</td>
+                </tr>
+                <tr>
+                    <td>33211</td>
+                    <td>rejected</td>
+                    <td>15/5/2023</td>
+                    <td>Peronal Loan</td>
+                    <td>550000</td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+
+        <div class="apply-loan-inside-table">
+            <a href="#apply-loan-div" > Apply for a Loan!</a>
+        </div>
+    </div>
+
+        
+    <div id="apply-loan-div" class="apply-loan-div">
+        <div class="form">
+            <div class="title">Apply for a Loan!</div>
+            
+            <div class="input-container ic1">
+                <input id="full-name" class="input" type="text" placeholder="Full Name"/>
+            </div>
+            
+            <div class="input-container ic2">
+                <input id="national-id" class="input" type="text" placeholder="National ID"/>
+            </div>
+
+            <div class="input-container ic2">
+                <input id="account-no" class="input" type="text" placeholder="Account Number"/>
+            </div>
+
+            <div class="input-container ic2">
+                <input id="loan-amount" class="input" type="number" placeholder="Loan Amount"/>
+            </div>
+
+            <div class="input-container ic2">
+                <!-- <label for="Loan-type" class="loan-label">Loan Type</label> -->
+                <select name="type" id="type" class="custom-select">
+                    <option selected>Loan Type</option>
+                    <option>Car Loan</option>
+                    <option>Personal Loan</option>
+                </select>    
+            </div>
+             
+            <button id="submit-btn" type="text" class="submit">submit</button>
+            
+        </div>
+    </div>
+
+
+    <div id="includedFooter">
+        
+    </div>
+
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('/clientHeader.html', 'includedHeader');
+        includeHTML('/clientFooter.html', 'includedFooter');
+        
+    </script>
+    
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;
+            
+            //execute my script (starts here)
+            const submitBtn = document.getElementById('submit-btn');
+            const fullName = document.getElementById('full-name');
+            const natId = document.getElementById('national-id');
+            const accountNo = document.getElementById('account-no');
+            const loanAmount = document.getElementById('loan-amount');
+            const loanType = document.getElementById('type')
+
+            const success_popup=document.getElementById('success');
+            const error_popup =document.getElementById('error');
+            const s_close=document.getElementById('s_button');
+            const e_close=document.getElementById('e_button');
+            
+
+            
+            submitBtn.addEventListener('click', ()=>{
+
+                if(fullName.value=='' || natId.value=='' || accountNo.value=='' || loanAmount.value=="" || loanType.selectedIndex === 0){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Missing Field!";
+                    error_popup.style.display="block";       
+                }
+
+                else if(loanAmount.value<1000){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount is >= 1000!";
+                    error_popup.style.display="block"; 
+                }
+
+                else if(loanAmount.value>10000000){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount is <= 10000000!";
+                    error_popup.style.display="block"; 
+
+                }
+
+                else if(fullName.value!='' && natId.value!='' && loanAmount.value>=1000 && loanAmount.value<=10000000){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = " Application has been requested successfully!";
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+
+                fullName.value='';
+                natId.value='';
+                accountNo.value='';
+                loanAmount.value='';
+                loanType.selectedIndex = 0;
+                
+            });
+            
+    
+            s_close.onclick =function(){
+              success_popup.style.display="none";
+            }
+            e_close.onclick=function(){
+              error_popup.style.display="none";
+            } 
+    
+            //my script ends here
+    
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+    
+        // Include HTML file and execute the inline script
+        includeHTML('/errormsg.html', 'includedContent');
+        
+    </script>
+
+</body>
+
+</html>
