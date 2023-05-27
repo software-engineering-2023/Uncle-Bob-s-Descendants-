@@ -35,7 +35,7 @@
             <tbody>
                 <tr>
                     <td>12344</td>
-                    <td>accepted</td>
+                    <td class="toBeGreen">accepted</td>
                     <td>28/12/2022</td>
                     <td>car Loan</td>
                     <td>125000</td>
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>33211</td>
-                    <td>rejected</td>
+                    <td class="toBeRed">rejected</td>
                     <td>15/5/2023</td>
                     <td>Peronal Loan</td>
                     <td>550000</td>
@@ -153,12 +153,12 @@
                 }
 
                 else if(loanAmount.value<1000){
-                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount is >= 1000!";
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount should be >= 1000!";
                     error_popup.style.display="block"; 
                 }
 
                 else if(loanAmount.value>10000000){
-                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount is <= 10000000!";
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "amount should be <= 10000000!";
                     error_popup.style.display="block"; 
 
                 }
@@ -168,6 +168,7 @@
                     success_popup.style.display="block";
                 }
                 else{
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Something went wrong. Try Aggain!";
                     error_popup.style.display="block";
                 }
 

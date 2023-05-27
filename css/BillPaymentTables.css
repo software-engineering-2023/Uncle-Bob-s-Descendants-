@@ -5,15 +5,30 @@
 
 .main-div{
     padding-top: 7em;
-    padding-bottom: 13em;
+    padding-bottom: 12em;
+    display: flex;
+    flex-direction: row;
 }
 
 .table{
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    border: 1px solid #ddd;
-    margin: 0 auto;
     margin-bottom: 2em;
     text-align: center;
+    max-width: 50%;
+    margin-left: -1em;
+}
+
+.bg-img{
+    width: 23%;
+    height: 23%;
+    position: relative;
+    left: 22em;
+    top: 10em;
+}
+
+.bottom-tr{
+    border-bottom: 0.01em solid;
+    border-bottom-color: yellow;
 }

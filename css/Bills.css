@@ -4,18 +4,27 @@
 }
 
 .main-div{
-    max-width: 20%;
+    max-width: 100%;
     padding-top: 7em;
-    padding-bottom: 13em;
-    background-image: url(/images/billBackground.jpg) no repeat;
-    background-size: cover; 
-    background-position: center;
-    background-attachment: fixed;
+    padding-bottom: 8em;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    gap: 7em;
 }
 
 .sec-div{
     display: flex;
     position: relative;
     left: -20em;
-    max-width: 100%;
+    width: 20%;
+    margin-left: 6em;
+}
+
+.bg-img{
+    width: 23%;
+    height: 23%;
+    position: relative;
+    left: 10em;
+    top: 0em;
 }

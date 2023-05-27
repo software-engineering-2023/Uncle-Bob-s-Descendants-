@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/Accounts.css" />
     <link rel="stylesheet" href="css/clientHomeStyle.css">
@@ -28,6 +29,7 @@
                     <th>Account No.</th>
                     <th>Balance</th>
                     <th>Transactions</th>
+                    <th>Don't want it anymore!</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,21 +37,25 @@
                     <td>125279</td>
                     <td>6000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
                 </tr>
                 <tr>
                     <td>176543</td>
                     <td>100000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
                 </tr>
                 <tr>
                     <td>650934</td>
                     <td>10000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
                 </tr>
                 <tr>
                     <td>543098</td>
                     <td>7000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
+                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
                 </tr>
                 <!-- and so on... -->
             </tbody>
@@ -114,6 +120,8 @@
             targetElement.innerHTML = data;
             
             //execute my script (starts here)
+            const deleteBtns = document.querySelectorAll('.delete-btn');
+
             const submitBtn = document.getElementById('submit-btn');
             const accName = document.getElementById('account-name');
             const accType = document.getElementById('account-type');
@@ -124,17 +132,26 @@
             const s_close=document.getElementById('s_button');
             const e_close=document.getElementById('e_button');
             
+            for(var deleteBtn of deleteBtns){
+                deleteBtn.addEventListener('click', ()=>{
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Account Closed successfully!"
+                    success_popup.style.display="block";
+                });
+            }
 
             
             submitBtn.addEventListener('click', ()=>{
 
                 if(accName.value=='' || accType.value=='' || natId.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!"
                     error_popup.style.display="block";       
                 }
                 else if(accName.value!='' && accType.value!='' && natId.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Account Created successfully!"
                     success_popup.style.display="block";
                 }
                 else{
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Something went again. Try again!"
                     error_popup.style.display="block";
                 }
                 accName.value='';

@@ -5,14 +5,20 @@ body{
 
 .table-div{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap:15em;
+    gap:5em;
     align-items: center;
     margin-top: 1em;
     background-color: #2f58c8;
     padding-top: 8em;
     padding-bottom: 26em;
     margin-bottom: 0em;
+    padding-right: 15em;
+    background: url(/images/main_loan_bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 .styled-table {
     border-collapse: collapse;
@@ -92,37 +98,17 @@ body{
 }
 
 
-/* input {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1em;
-    width: 70%;
-    padding-left: 10em;
-}
-
-input[type=label]{
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-input[type=text] {
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-} */
-
-
-
 .apply-loan-div{
     margin-top: 0;
     display: flex;
     justify-content: center;
     padding-top: 6em;
     padding-bottom: 10em;
-    background-color: #cce2fc;
+    padding-left: 15em;
+    background: url(/images/create_acc_bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 
@@ -185,7 +171,7 @@ input[type=text] {
     color:#eee;
     font-size: 18px;
     width: 100%;
-    height: 3.25 em;
+    height: 3.25em;
     border-radius: 12px;
   }
   
@@ -193,50 +179,6 @@ input[type=text] {
     display: none;
   }
 
-  
-/* .select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-}
-
-.select-selected.select-arrow-active:after {
-    top: 7px;
-  } */
-
-  
-  /* .cut {
-    background-color: #15172b;
-    border-radius: 10px;
-    height: 20px;
-    left: 20px;
-    position: absolute;
-    top: -20px;
-    transform: translateY(0);
-    transition: transform 200ms;
-    width: 76px;
-  }
-  
-  .cut-short {
-    width: 50px;
-  } */
-  
-  
-  /* .placeholder {
-    color: #65657b;
-    font-family: sans-serif;
-    left: 20px;
-    line-height: 14px;
-    pointer-events: none;
-    position: absolute;
-    transform-origin: 0 50%;
-    transition: transform 200ms, color 200ms;
-    top: 20px;
-  } */
   
   
   .submit {
@@ -261,4 +203,16 @@ input[type=text] {
   .submit:hover {
     background-color: #0a49f6;
     transform: scale(1.1);
+  }
+
+  .toBeGreen{
+    color: #0a0;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+ 
+  .toBeRed{
+    color: #f00;
+    text-transform: uppercase;
+    font-weight: 600;
   }

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -173,10 +173,74 @@ section {
 
     /* Change color of dropdown links on hover */
     .dropdown-content a:hover {
-        background-color: #119da4;
+        background-color: #d1d3eb;
         border-radius: 12px;
     }
 
     /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {display: block;}
   
+
+
+
+/* notifications header */
+.dropdown-notif {
+    position: relative;
+    display: inline-block;
+}
+   
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .notifications{
+        display: none;
+        position: absolute;
+        background-color: #e0e9ff;
+        width: 20em;
+        /* min-width: 160px; */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 12px;
+    }
+    .dropdown-notif:hover .notifications{
+        display: block;
+        opacity: 10;
+        transition: .5s ease;
+    }
+    .notifications h2{
+        font-size: 1.05em;
+        color: #000;
+        padding: 10px;
+        border-bottom: 3px solid black;
+    }
+    .notifications h2 span{
+        color: #f00;
+    }
+    .notifications-item{
+        display: flex;
+        border-bottom: 1px solid #eee;
+        padding: 6px 9px;
+        margin-bottom: 0px;
+        cursor: pointer;
+    }
+    .notifications-item:hover{
+        background-color: #d1d3eb;
+    }
+    .notifications-item img{
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-right: 9px;
+        border-radius: 50%;
+        margin-top: 2px;
+    }
+    .notifications-item .text h4{
+        color: rgb(41, 43, 52);
+        font-size: 16px;
+        margin-top: 3px;
+    }
+    .notifications-item .text p{
+        color: #3b33d3;
+        font-size: 12px;
+    }

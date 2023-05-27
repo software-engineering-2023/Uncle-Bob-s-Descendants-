@@ -34,3 +34,7 @@ select {
     background-position: right .7em top 50%, 0 0;
     background-size: .65em auto;
 }
+
+.checkbox:checked {
+    background-color:black;
+}

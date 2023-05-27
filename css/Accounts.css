@@ -5,14 +5,20 @@ body{
 
 .table-div{
     display: flex;
-    justify-content: center;
-    gap:15em;
+    flex-direction: column;
+    justify-content: left;
+    gap:3em;
     align-items: center;
     margin-top: 1em;
     background-color: #2f58c8;
     padding-top: 8em;
-    padding-bottom: 15em;
+    padding-bottom: 16em;
     margin-bottom: 0em;
+    padding-right: 20em;
+    background: url(/images/credit_card_bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 .styled-table {
     border-collapse: collapse;
@@ -92,27 +98,6 @@ body{
 }
 
 
-/* input {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1em;
-    width: 70%;
-    padding-left: 10em;
-}
-
-input[type=label]{
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-input[type=text] {
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-} */
 
 
 
@@ -123,6 +108,12 @@ input[type=text] {
     padding-top: 6em;
     padding-bottom: 10em;
     background-color: #cce2fc;
+    padding-left: 15em;
+    padding-right: -2em;
+    background: url(/images/create_acc_bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 
@@ -176,34 +167,6 @@ input[type=text] {
     width: 100%;
   }
   
-  /* .cut {
-    background-color: #15172b;
-    border-radius: 10px;
-    height: 20px;
-    left: 20px;
-    position: absolute;
-    top: -20px;
-    transform: translateY(0);
-    transition: transform 200ms;
-    width: 76px;
-  }
-  
-  .cut-short {
-    width: 50px;
-  } */
-  
-  
-  /* .placeholder {
-    color: #65657b;
-    font-family: sans-serif;
-    left: 20px;
-    line-height: 14px;
-    pointer-events: none;
-    position: absolute;
-    transform-origin: 0 50%;
-    transition: transform 200ms, color 200ms;
-    top: 20px;
-  } */
   
   
   .submit {
@@ -222,9 +185,6 @@ input[type=text] {
     transition: 0.7s ease;
   }
   
-  /* .submit:active {
-    background-color: #06b;
-  } */
   .submit:hover {
     background-color: #0a49f6;
     transform: scale(1.1);

@@ -215,7 +215,7 @@
 
     <div id="pay-with-card-div" class="card-div">
 
-        <div class="form">
+        <div id="pay-with-card-form" class="form">
             <div class="title">Pay with a Credit Card!</div>
             
             <div class="input-container ic1">
@@ -228,6 +228,10 @@
             
             <div class="input-container ic2">
                 <input id="amount" class="input" type="text" placeholder="Amount"/>
+            </div>
+
+            <div class="input-container ic2">
+                <input id="vendor" class="input" type="text" placeholder="Vendor"/>
             </div>
 
             <div class="input-container ic2">
@@ -341,6 +345,8 @@
             const accName_pay = document.getElementById('account-name-pay');
             const cardNum = document.getElementById('card-num');
             const amount = document.getElementById('amount');
+            const redeemPoints = document.getElementById('redeem-points');
+            const vendor = document.getElementById('vendor');
 
             const submitBtnBill = document.getElementById('submit-btn-bill');
             const accName_bill = document.getElementById('account-name-bill');
@@ -369,12 +375,16 @@
             submitBtnBill.addEventListener('click', ()=>{
 
                 if(accName_bill.value=='' || cardNum_bill.value=='' || amount_bill==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!";
                     error_popup.style.display="block";       
                 }
                 else if(accName_bill.value!='' && cardNum_bill.value!='' && amount_bill!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = 
+                    `${amount_bill}% of bill paid successfully!`;
                     success_popup.style.display="block";
                 }
                 else{
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Something went wrong. Try Again!";
                     error_popup.style.display="block";
                 }
                 
@@ -388,12 +398,16 @@
             setBtnBillReminder.addEventListener('click', ()=>{
 
                 if(date.value=='' || accName_bill_reminder.value=='' || cardNum_bill_reminder.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!";
                     error_popup.style.display="block";       
                 }
                 else if(date.value!='' && accName_bill_reminder.value!='' && cardNum_bill_reminder.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = 
+                    `Reminder set successfully on ${date.value}`;
                     success_popup.style.display="block";
                 }
                 else{
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Something went wrong. Try Again!";
                     error_popup.style.display="block";
                 }
 
@@ -403,30 +417,15 @@
                 
             });
 
-            submitBtnApply.addEventListener('click', ()=>{
-                
-                if(accName.value=='' || accType.value=='' || natId.value==''){
-                    error_popup.style.display="block";       
-                }
-                else if(accName.value!='' && accType.value!='' && natId.value!=''){
-                    success_popup.style.display="block";
-                }
-                else{
-                    error_popup.style.display="block";
-                }
-                
-                accName.value='';
-                accType.value='';
-                natId.value='';
-                
-            });
-
             submitBtnPay.addEventListener('click', ()=>{
                 
-                if(accName_pay.value=='' || cardNum.value=='' || amount.value==''){
+                if(accName_pay.value=='' || cardNum.value=='' || amount.value==''|| vendor.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!";
                     error_popup.style.display="block";       
                 }
-                else if(accName_pay.value!='' && cardNum.value!='' && amount.value!=''){
+                else if(accName_pay.value!='' && cardNum.value!='' && amount.value!='' && vendor.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = 
+                    "Purchase made Successfully!";
                     success_popup.style.display="block";
                 }
                 else{
@@ -436,8 +435,34 @@
                 accName_pay.value='';
                 cardNum.value='';
                 amount.value='';
+                redeemPoints.value='';
+                vendor.value='';
                 
             });
+
+
+            submitBtnApply.addEventListener('click', ()=>{
+                
+                if(accName.value=='' || accType.value=='' || natId.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!";
+                    error_popup.style.display="block";       
+                }
+                else if(accName.value!='' && accType.value!='' && natId.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = 
+                    "Application submitted successfully!";
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Something went wrong. Try Again!";
+                    error_popup.style.display="block";
+                }
+                
+                accName.value='';
+                accType.value='';
+                natId.value='';
+                
+            });
+
             
     
             s_close.onclick =function(){

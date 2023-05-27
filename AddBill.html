@@ -39,7 +39,7 @@
         
         <div class="form-group">
           <label class="inp-label" for="exampleInputEmail1">Amount of Money</label>
-          <input id="inp-amount" class="form-control label-info" id="exampleInputEmail1" placeholder="Enter Amount" required>
+          <input id="inp-amount" class="form-control label-info" placeholder="Enter Amount" required>
         </div>
         
         <br>
@@ -56,7 +56,21 @@
         </div>
         
         <br>
+
+        <div class="form-group">
+          <label class="inp-label" for="inp-date">Due Date</label>
+          <input id="inp-date" type="date" class="form-control label-info" required>
+        </div>
         
+        <br>
+
+        <div class="form-check">
+          <input class="form-check-input checkbox" type="checkbox" id="checkbox" value="option1">
+          <label class="form-check-label" for="checkbox">Set Reminder for the Bill</label>
+        </div>  
+        
+        <br>
+
         <button id="main-btn" type="submit" class="btn btn-primary btn-dark">Add Bill</button>
       </form>
     </div>
@@ -99,7 +113,8 @@
             const inpForm = document.getElementById('main-form');
             const inpAmount = document.getElementById('inp-amount');
             const inpSelect = document.getElementById('bill-type');
-            
+            const inpDate = document.getElementById('inp-date');
+            const inpCheckbox = document.getElementById('checkbox');
             
             const success_popup=document.getElementById('success');
             const error_popup =document.getElementById('error');
@@ -111,11 +126,14 @@
               e.preventDefault();
               success_popup.childNodes[1].childNodes[5].innerHTML = "Bill Added Sucessfully!"
               success_popup.style.display="block";     
+              success_popup.style.left="30em";
             });
             
             function reset(){
               inpAmount.value="";
               inpSelect.selectedIndex=0;
+              inpDate.value="";
+              inpCheckbox.checked=false;
             }
             s_close.onclick =function(){
               success_popup.style.display="none";
