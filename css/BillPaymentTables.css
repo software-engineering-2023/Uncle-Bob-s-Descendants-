@@ -1,0 +1,19 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-div{
+    padding-top: 7em;
+    padding-bottom: 13em;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    text-align: center;
+}

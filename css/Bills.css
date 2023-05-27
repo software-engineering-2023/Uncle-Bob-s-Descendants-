@@ -1,0 +1,21 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-div{
+    max-width: 20%;
+    padding-top: 7em;
+    padding-bottom: 13em;
+    background-image: url(/images/billBackground.jpg) no repeat;
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.sec-div{
+    display: flex;
+    position: relative;
+    left: -20em;
+    max-width: 100%;
+}
