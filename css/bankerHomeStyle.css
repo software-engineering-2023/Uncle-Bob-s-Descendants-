@@ -1,0 +1,17 @@
+.emp-report{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(234, 233, 252);
+    padding-top: 8em;
+    padding-bottom: 10em;
+}
+
+.img-div{
+    position: absolute;
+    left: 70em;
+    top: 57em;
+}
+.stats-img{
+    width: 22em;
+    height: 25em;
+}

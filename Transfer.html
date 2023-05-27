@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Accounts.css" />
+    <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/errormsg.css">
+    <link rel="stylesheet" href="css/Transfer.css">
+    <title>Transfer Page</title>
+</head>
+
+<div id="includedHeader">
+
+</div>
+
+<body>
+
+    <!-- importing of success-error messages -->
+    <div class="success-error" id="includedContent"></div>
+    
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;            
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+        
+        // Include HTML file and execute the inline script
+        includeHTML('clientHeader.html', 'includedHeader');
+        includeHTML('clientFooter.html', 'includedFooter');
+        
+    </script>
+
+    <script src = '/js/Transfer.js'></script>
+
+    <script>
+        function includeHTML(url, targetId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const targetElement = document.getElementById(targetId);
+            targetElement.innerHTML = data;
+            
+            //execute my script (starts here)
+            const submitBtnIntrl = document.getElementById('submit-btn-international');
+            const IBANIntrl = document.getElementById('IBAN-international');
+            const amountIntrl = document.getElementById('amount-international');
+            const recieverIntrl = document.getElementById('reciever-international');
+            const regionIntrl = document.getElementById('region-international');
+
+            const submitBtnDom = document.getElementById('submit-btn-domestic');
+            const accNumDom = document.getElementById('account-no-domestic');
+            const amountDom = document.getElementById('amount-domestic');
+            const recieverDom = document.getElementById('reciever-domestic');
+            const bankNumDom = document.getElementById('bank-no-domestic');
+
+            const submitBtnIntrnl = document.getElementById('submit-btn-domestic');
+            const accNumIntrnl = document.getElementById('account-no-internal');
+            const amountIntrnl = document.getElementById('amount-internal');
+            const recieverIntrnl = document.getElementById('reciever-internal');
+            const dateIntrnl = document.getElementById('date-internal');
+
+            const success_popup=document.getElementById('success');
+            const error_popup =document.getElementById('error');
+            const s_close=document.getElementById('s_button');
+            const e_close=document.getElementById('e_button');
+
+            submitBtnIntrl.addEventListener('click', ()=>{
+
+                if(IBANIntrl.value=='' || amountIntrl.value=='' || recieverIntrl.value=='' || regionIntrl.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(IBANIntrl.value!='' && amountIntrl.value!='' && recieverIntrl.value!='' && regionIntrl.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                IBANIntrl.value='';
+                amountIntrl.value='';
+                recieverIntrl.value='';
+                regionIntrl.value='';
+                
+            });
+
+            submitBtnDom.addEventListener('click', ()=>{
+
+                if(accNumDom.value=='' || amountDom.value=='' || recieverDom.value=='' || bankNumDom.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(accNumDom.value!='' && amountDom.value!='' && recieverDom.value!='' && bankNumDom.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                accNumDom.value='';
+                amountDom.value='';
+                recieverDom.value='';
+                bankNumDom.value='';
+                
+            });
+
+            submitBtnIntrnl.addEventListener('click', ()=>{
+
+                if(accNumIntrnl.value=='' || amountIntrnl.value=='' || recieverIntrnl.value=='' || dateIntrnl.value==''){
+                    error_popup.style.display="block";       
+                }
+                else if(accNumIntrnl.value!='' && amountIntrnl.value!='' && recieverIntrnl.value!='' && dateIntrnl.value!=''){
+                    success_popup.style.display="block";
+                }
+                else{
+                    error_popup.style.display="block";
+                }
+                
+                accNumIntrnl.value='';
+                amountIntrnl.value='';
+                recieverIntrnl.value='';
+                dateIntrnl.value='';
+                
+            });
+            
+            s_close.onclick =function(){
+              success_popup.style.display="none";
+            }
+            e_close.onclick=function(){
+              error_popup.style.display="none";
+            } 
+    
+            //my script ends here
+    
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+    
+        // Include HTML file and execute the inline script
+        includeHTML('/errormsg.html', 'includedContent');
+        
+    </script>
+
+    <div class = "make-a-transfer-div">
+    
+    <!-- Tab links -->    
+    
+        <div class="tab">
+            <button class="tablinks" onclick="openSection(event, 'international-transfer')">International</button>
+            <button class="tablinks" id="default-opener" onclick="openSection(event, 'internal-transfer')">Internal</button>
+            <button class="tablinks" onclick="openSection(event, 'domestic-transfer')">Domestic</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="international-transfer" class="tabcontent">
+        <!-- <div id="add-account-div" class="add-account-div"> -->
+            <div class="form">
+                <div class="title">Make your international transfer here!</div>
+                
+                <div class="input-container ic1">
+                    <input id="IBAN-international" class="input" type="text" placeholder="IBAN"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="amount-international" class="input" type="text" placeholder="Amount"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="reciever-international" class="input" type="text" placeholder="Reciever Account no."/>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="region-international" class="input" type="text" placeholder="Region"/>
+                </div>
+
+                <button id="submit-btn-international" type="text" class="submit">submit</button>
+            </div>
+        <!-- </div> -->
+        </div>
+      
+        <div id="internal-transfer" class="tabcontent">
+        <!-- <div id="add-account-div" class="add-account-div"> -->
+            <div class="form">
+                <div class="title">Make your internal transfer here!</div>
+                
+                <div class="input-container ic1">
+                    <input id="account-no-internal" class="input" type="text" placeholder="Account No."/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="amount-internal" class="input" type="text" placeholder="Amount"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="reciever-internal" class="input" type="text" placeholder="Reciever Account no."/>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="arrival-date-internal" class="input" type="date" placeholder="Arrival Date"/>
+                </div>
+
+                <button id="submit-btn-internal" type="text" class="submit">submit</button>
+            </div>
+        <!-- </div> -->
+        </div>
+
+        <div id="domestic-transfer" class="tabcontent">
+            <!-- <div id="add-account-div" class="add-account-div"> -->
+                <div class="form">
+                    <div class="title">Make your Domestic transfer here!</div>
+                    
+                    <div class="input-container ic1">
+                        <input id="account-no-domestic" class="input" type="text" placeholder="Account No."/>
+                    </div>
+                    
+                    <div class="input-container ic2">
+                        <input id="amount-domestic" class="input" type="text" placeholder="Amount"/>
+                    </div>
+                    
+                    <div class="input-container ic2">
+                        <input id="reciever-domestic" class="input" type="text" placeholder="Reciever Account no."/>
+                    </div>
+
+                    <div class="input-container ic2">
+                        <input id="bank-no-domestic" class="input" type="text" placeholder="Bank no."/>
+                    </div>
+
+                    <button id="submit-btn-domestic" type="text" class="submit">submit</button>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+   
+  
+    <div id="includedFooter">
+        
+    </div>
+    
+</body>
+</html>
