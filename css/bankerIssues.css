@@ -1,0 +1,39 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+.main-div{
+    padding-top: 8em;
+    padding-bottom: 20em;
+    padding-left: 7em;
+    background: url(/images/banker-issue-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.issues-header{
+    color: white;
+    font-weight: 700;
+    font-size: 4em;
+    padding-bottom: 0.3em;
+}
+
+.my-list{
+    width: 60%;
+}
+
+.toBeGreen{
+    color: #016501;
+}
+
+#toBeHidden{
+    display: none;
+}
+
+.toBeRed{
+    color: #ff0000;
+}
+#toBeHidden2{
+    display: none;
+}
