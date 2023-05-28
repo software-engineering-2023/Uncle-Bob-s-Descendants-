@@ -1,0 +1,32 @@
+.background {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 3em;
+    display: flex;
+    align-items: center;
+    background: url(/images/loan_apps_bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main-div{
+    /* width: 100%; */
+    width: 75%;
+    height: 100vh;
+    margin-top: 3em;
+    margin-left: -13em;
+    /* background-color: rgba(0,0,0,0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#table-div {
+    width: 100%;
+    box-shadow: 2em 2em 2em 2em rgba(0,0,0,0.075);
+    /* height: 100vh; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
