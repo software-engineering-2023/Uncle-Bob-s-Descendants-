@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 49em;
+    margin-left: 41%;
   }
   
   /* Go from zero to full opacity */
@@ -59,19 +59,6 @@
     from {opacity: 0;}
     to {opacity: 1;}
   }
-
-  /* #Paris{
-    display: flex;
-    justify-content: center;
-  }
-  #London{
-    display: flex;
-    justify-content: center;
-  }
-  #Tokyo{
-    display: flex;
-    justify-content: center;
-  } */
 
   .make-a-transfer-div {
     width: 100%;
@@ -84,15 +71,3 @@
     background-attachment: fixed;
     padding: 4.3em 0em;
 }
-
-/* .image{
-  width: 100%;
-  min-height: 100vh;
-  display: block;
-  align-items: center;
-  background-image: url("images/transferIMG.png") no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 4.3em 0em;
-} */

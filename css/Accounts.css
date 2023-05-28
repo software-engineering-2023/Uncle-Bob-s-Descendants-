@@ -97,10 +97,6 @@ body{
     color: #fff;
 }
 
-
-
-
-
 .add-account-div{
     margin-top: 0;
     display: flex;
@@ -115,7 +111,6 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
-
 
 .form {
     background-color: #15172b;
@@ -166,8 +161,6 @@ body{
     padding: 4px 20px 0;
     width: 100%;
   }
-  
-  
   
   .submit {
     background-color: #08d;
