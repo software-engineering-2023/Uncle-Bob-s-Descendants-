@@ -88,7 +88,7 @@ body {
   box-shadow: 0 0 2em #e6e9f9;
   gap: 2em;
   max-height: 30em;
-  max-width: 20em;
+  max-width: 25em;
 }
 .screen-1 .logo {
   margin-top: -2em;
@@ -208,4 +208,18 @@ body {
 
 button {
   cursor: pointer;
+}
+
+
+ .main-div-23{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  margin-top: 5em;
+  width: 100%;
+} 
+
+.container .info{
+  color: black;
 }
