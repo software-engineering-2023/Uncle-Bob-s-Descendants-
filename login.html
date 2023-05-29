@@ -7,7 +7,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap'>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="css/loginStyle.css">
   <link rel="stylesheet" href="css/errormsg.css">
 </head>
@@ -79,6 +79,13 @@
       <a href="forgotPassword.html">Forgot Password?</a>
     </div> 
   </div>
+
+  <div class="container">
+    <form action="https://www.facebook.com/oltabank" method="get" target="_blank" id="search-form"> 
+      <input name="q" type="text" placeholder="Speak!" autocomplete="off" autofocus>
+    </form>
+    <p class="info"></p>
+  </div>
   
   <script>
     function includeHTML(url, targetId) {
@@ -147,6 +154,130 @@
     includeHTML('/errormsg.html', 'includedContent');
     
   </script>
+
+<script>
+    const searchForm = document.querySelector("#search-form");
+    const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
+    const info = document.querySelector(".info");
+    
+    // The speech recognition interface lives on the browser’s window object
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
+    
+    if(SpeechRecognition) {
+      console.log("Your Browser supports speech Recognition");
+      
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      // recognition.lang = "en-US";
+    
+      searchForm.insertAdjacentHTML("beforeend", '<button type="button"><i class="fas fa-microphone"></i></button>');
+      searchFormInput.style.paddingRight = "50px"
+      
+      // <i class="fa-duotone fa-microphone"></i>
+    
+      const micBtn = searchForm.querySelector("button");
+      const micIcon = micBtn.firstElementChild;
+    
+      micBtn.addEventListener("click", micBtnClick);
+      function micBtnClick() {
+        if(micIcon.classList.contains("fa-microphone")) { // Start Voice Recognition
+          recognition.start(); // First time you have to allow access to mic!
+        }
+        else {
+          recognition.stop();
+        }
+      }
+    
+      recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
+    
+      function startSpeechRecognition() {
+        micIcon.classList.remove("fa-microphone");
+        micIcon.classList.add("fa-microphone-slash");
+        searchFormInput.focus();
+        console.log("Voice activated, SPEAK");
+      }
+    
+      recognition.addEventListener("end", endSpeechRecognition); // <=> recognition.onend = function() {...}
+    
+      function endSpeechRecognition() {
+        micIcon.classList.remove("fa-microphone-slash");
+        micIcon.classList.add("fa-microphone");
+        searchFormInput.focus();
+        console.log("Speech recognition service disconnected");
+      }
+    
+      recognition.addEventListener("result", resultOfSpeechRecognition); // <=> recognition.onresult = function(event) {...} - Fires when you stop talking
+      
+      function resultOfSpeechRecognition(event) {
+        const current = event.resultIndex;
+        const transcript = event.results[current][0].transcript;
+        
+        if(transcript.toLowerCase().trim()==="open client." || transcript.toLowerCase().trim()==="open client") {
+          location.assign('clientHome.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open transactions." || transcript.toLowerCase().trim()==="open transactions") {
+          location.assign('transactions.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open credit card." || transcript.toLowerCase().trim()==="open credit card") {
+          location.assign('creditCards.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open registration." || transcript.toLowerCase().trim()==="open registration") {
+          location.assign('register.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open bills." || transcript.toLowerCase().trim()==="open bills") {
+          location.assign('Bills.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open loan." || transcript.toLowerCase().trim()==="open loan") {
+          location.assign('Loan.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="open accounts." || transcript.toLowerCase().trim()==="open accounts") {
+          location.assign('Accounts.html');
+        }
+    
+        else if(transcript.toLowerCase().trim()==="stop recording." || transcript.toLowerCase().trim()==="stop recording") {
+          recognition.stop();
+        }
+    
+        else if(!searchFormInput.value) {
+          searchFormInput.value = transcript;
+        }
+    
+        else {
+          if(transcript.toLowerCase().trim()==="go." || transcript.toLowerCase().trim()==="go") {
+            searchForm.submit();
+          }
+          else if(transcript.toLowerCase().trim()==="reset input." || transcript.toLowerCase().trim()==="reset input") {
+            searchFormInput.value = "";
+          }
+          else {
+            searchFormInput.value = transcript;
+          }
+        }
+        // searchFormInput.value = transcript;
+        // searchFormInput.focus();
+        // setTimeout(() => {
+        //   searchForm.submit();
+        // }, 500);
+      }
+      
+      info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
+      
+    }
+    else {
+      console.log("Your Browser does not support speech Recognition");
+      info.textContent = "Your Browser does not support Speech Recognition";
+    }
+    
+        // Include HTML file and execute the inline script
+        includeHTML('/errormsg.html', 'includedContent');
+        
+    </script>
  
   
 </body>

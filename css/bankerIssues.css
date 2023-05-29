@@ -37,3 +37,11 @@
 #toBeHidden2{
     display: none;
 }
+
+.balabizo {
+    display: flex;
+    /* flex-direction: column; */
+    /* gap: 2em; */
+    justify-content: space-between;
+
+}

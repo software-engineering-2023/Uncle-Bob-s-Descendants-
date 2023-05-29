@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>OLtA Bank</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,8 +13,21 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/clientHomeStyle.css">
+    <link rel="stylesheet" href="css/creditCards.css">
     <link rel="stylesheet" href="css/errormsg.css">
     <link rel="stylesheet" href="css/Bills.css">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+    <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"
+    ></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -29,23 +42,159 @@
 
   <body>
     
-    
-    
+    <!-- importing of success-error messages -->
+    <div class="success-error" id="includedContent"></div>
     
     <div class="main-div container mt-5 justify-content-center">
       <div class = "sec-div btn-group btn-group-vertical justify-content-center gap-4">
         <a class ="btn btn-primary" href="PayBill.html"> Pay Bill</a>
         <a class ="btn btn-primary" href="BillPaymentHistory.html"> Bill Payment History</a>
+        <a class ="btn btn-primary" href="FavouriteBills.html">Favourite Bills</a>
         <a class ="btn btn-primary" href="AddBill.html"> Add Bill</a>
         <a class ="btn btn-primary" href="BillsToBePaid.html">Bills To Be Paid</a>
-
+        <a class ="btn btn-primary" href="#bill-reminder-div"> Set Bill Reminder</a>
       </div>
       <img class="bg-img" src="images/bill_bg.png" alt="">
     </div>
 
+    <div id="bill-reminder-div" class="card-div">
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Bill Type</th>
+            <th>Due Date</th>
+            <th>Bill Id</th>
+            <th>Amount</th>
+            <th>Currency</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Gas</td>
+            <td>26/2/2015</td>
+            <td>G-26-83</td>
+            <td>500</td>
+            <td>EGP</td>
+          </tr>
+          <tr>
+            <td>Water</td>
+            <td>3/10/2013</td>
+            <td>W-20-91</td>
+            <td>100</td>
+            <td>SAR</td>
+          </tr>
+          <tr>
+            <td>Electricity</td>
+            <td>4/8/2026</td>
+            <td>E-00-64</td>
+            <td>800</td>
+            <td>EUR</td>
+          </tr>
+          <tr class="bottom-tr">
+            <td>Telephone</td>
+            <td>2/7/2018</td>
+            <td>T-43-73</td>
+            <td>1000</td>
+            <td>USD</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form" id="bill-reminder-form">
+          <div class="title">Set your Bill's reminder!</div>
+
+          <div class="input-container ic1">
+              <input id="account-name-bill-reminder" class="input" type="text" placeholder="Bill ID"/>
+          </div>
+          
+          <div class="input-container ic2">
+            <!-- <label for="Loan-type" class="loan-label">Loan Type</label> -->
+            <select name="type" id="type" class="custom-select">
+                <option selected>Bill Type</option>
+                <option>Water</option>
+                <option>Gas</option>
+                <option>Electricity</option>
+                <option>Telephone</option>
+            </select>    
+        </div>
+          
+          <div class="input-container ic1">
+              <input id="bill-reminder" class="input" type="date" placeholder="Date"/>
+          </div>
+
+          <button id="set-btn-bill-reminder" type="text" class="submit">set</button>
+      </div>
+          
+
+      
+  </div>
+
     <div id="includedFooter">
         
     </div>
+
+    <script>
+      function includeHTML(url, targetId) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          const targetElement = document.getElementById(targetId);
+          targetElement.innerHTML = data;
+          
+          //execute my script (starts here)
+          const setBtnBillReminder = document.getElementById('set-btn-bill-reminder');
+          const accName_bill_reminder = document.getElementById('account-name-bill-reminder');
+          const loanType = document.getElementById('type')
+          const date = document.getElementById('bill-reminder');
+
+          const success_popup=document.getElementById('success');
+          const error_popup =document.getElementById('error');
+          const s_close=document.getElementById('s_button');
+          const e_close=document.getElementById('e_button');
+
+
+          setBtnBillReminder.addEventListener('click', ()=>{
+
+              if(date.value=='' || accName_bill_reminder.value=='' || loanType.selectedIndex === 0){
+                  error_popup.childNodes[1].childNodes[5].innerHTML = "Empty Fields!";
+                  error_popup.style.display="block";       
+              }
+              else if(date.value!='' && accName_bill_reminder.value!='' && loanType.selectedIndex != 0){
+                  success_popup.childNodes[1].childNodes[5].innerHTML = 
+                  `Reminder set successfully on ${date.value}`;
+                  success_popup.style.display="block";
+              }
+              else{
+                  error_popup.childNodes[1].childNodes[5].innerHTML = "Something went wrong. Try Again!";
+                  error_popup.style.display="block";
+              }
+
+              accName_bill_reminder.value='';
+              date.value='';
+              loanType.selectedIndex = 0;
+              
+          });
+  
+          s_close.onclick =function(){
+            success_popup.style.display="none";
+          }
+          e_close.onclick=function(){
+            error_popup.style.display="none";
+          } 
+  
+          //my script ends here
+  
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+  
+      // Include HTML file and execute the inline script
+      includeHTML('/errormsg.html', 'includedContent');
+      
+  </script>
 
     <script>
       function includeHTML(url, targetId) {

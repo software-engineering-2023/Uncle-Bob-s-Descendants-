@@ -4,7 +4,7 @@
 }
 
 .main-div{
-    padding-top: 7em;
+    padding-top: 17em;
     padding-bottom: 17em;
     display: flex;
     flex-direction: row;
@@ -25,10 +25,18 @@
     height: 23%;
     position: relative;
     left: 22em;
-    top: 10em;
+    top: 0em;
 }
 
 .bottom-tr{
     border-bottom: 0.01em solid;
     border-bottom-color: yellow;
+}
+
+.add-to-fav {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #3a6cf4;
+    text-decoration: none;
+    color: #eee;
 }

@@ -9,7 +9,19 @@
     <link rel="stylesheet" href="css/clientHomeStyle.css">
     <link rel="stylesheet" href="css/errormsg.css">
     <link rel="stylesheet" href="css/Transfer.css">
-    <title>Transfer Page</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+    <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"
+    ></script>
+    <title>OLtA Bank</title>
 </head>
 
 <div id="includedHeader">
@@ -20,14 +32,105 @@
 
     <!-- importing of success-error messages -->
     <div class="success-error" id="includedContent"></div>
+
+    <div class = "make-a-transfer-div">
     
+    <!-- Tab links -->    
+    
+        <div class="tab">
+            <button class="tablinks" onclick="openSection(event, 'international-transfer')">International</button>
+            <button class="tablinks" id="default-opener" onclick="openSection(event, 'internal-transfer')">Internal</button>
+            <button class="tablinks" onclick="openSection(event, 'domestic-transfer')">Domestic</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="international-transfer" class="tabcontent">
+            <div class="form">
+                <div class="title">Make your international transfer here!</div>
+                
+                <div class="input-container ic1">
+                    <input id="IBAN-international" class="input" type="text" placeholder="IBAN"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="amount-international" class="input" type="text" placeholder="Amount"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="receiver-international" class="input" type="text" placeholder="receiver Account no."/>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="region-international" class="input" type="text" placeholder="Region"/>
+                </div>
+
+                <button id="submit-btn-international" type="text" class="submit">submit</button>
+            </div>
+        </div>
+      
+        <div id="internal-transfer" class="tabcontent">
+            <div class="form">
+                <div class="title">Make your internal transfer here!</div>
+                
+                <div class="input-container ic1">
+                    <input id="account-no-internal" class="input" type="text" placeholder="Account No."/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="amount-internal" class="input" type="text" placeholder="Amount"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="receiver-internal" class="input" type="text" placeholder="receiver Account no."/>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="arrival-date-internal" class="input" type="date" placeholder="Arrival Date"/>
+                </div>
+
+                <button id="submit-btn-internal" type="text" class="submit">submit</button>
+            </div>
+        </div>
+
+        <div id="domestic-transfer" class="tabcontent">
+            <div class="form">
+                <div class="title">Make your Domestic transfer here!</div>
+                
+                <div class="input-container ic1">
+                    <input id="account-no-domestic" class="input" type="text" placeholder="Account No."/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="amount-domestic" class="input" type="text" placeholder="Amount"/>
+                </div>
+                
+                <div class="input-container ic2">
+                    <input id="receiver-domestic" class="input" type="text" placeholder="receiver Account no."/>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="bank-no-domestic" class="input" type="text" placeholder="Bank no."/>
+                </div>
+
+                <button id="submit-btn-domestic" type="text" class="submit">submit</button>
+            </div>
+        </div>
+    </div>
+
+   
+  
+    <div id="includedFooter">
+        
+    </div>
+
     <script>
         function includeHTML(url, targetId) {
         fetch(url)
           .then(response => response.text())
           .then(data => {
             const targetElement = document.getElementById(targetId);
-            targetElement.innerHTML = data;            
+            targetElement.innerHTML = data;   
+            targetElement.childNodes[0].childNodes[1].childNodes[1].href = "Transactions.html";         
           })
           .catch(error => {
             console.error('Error:', error);
@@ -54,20 +157,20 @@
             const submitBtnIntrl = document.getElementById('submit-btn-international');
             const IBANIntrl = document.getElementById('IBAN-international');
             const amountIntrl = document.getElementById('amount-international');
-            const recieverIntrl = document.getElementById('reciever-international');
+            const receiverIntrl = document.getElementById('receiver-international');
             const regionIntrl = document.getElementById('region-international');
 
             const submitBtnDom = document.getElementById('submit-btn-domestic');
             const accNumDom = document.getElementById('account-no-domestic');
             const amountDom = document.getElementById('amount-domestic');
-            const recieverDom = document.getElementById('reciever-domestic');
+            const receiverDom = document.getElementById('receiver-domestic');
             const bankNumDom = document.getElementById('bank-no-domestic');
 
-            const submitBtnIntrnl = document.getElementById('submit-btn-domestic');
+            const submitBtnIntrnl = document.getElementById('submit-btn-internal');
             const accNumIntrnl = document.getElementById('account-no-internal');
             const amountIntrnl = document.getElementById('amount-internal');
-            const recieverIntrnl = document.getElementById('reciever-internal');
-            const dateIntrnl = document.getElementById('date-internal');
+            const receiverIntrnl = document.getElementById('receiver-internal');
+            const dateIntrnl = document.getElementById('arrival-date-internal');
 
             const success_popup=document.getElementById('success');
             const error_popup =document.getElementById('error');
@@ -76,10 +179,12 @@
 
             submitBtnIntrl.addEventListener('click', ()=>{
 
-                if(IBANIntrl.value=='' || amountIntrl.value=='' || recieverIntrl.value=='' || regionIntrl.value==''){
+                if(IBANIntrl.value=='' || amountIntrl.value=='' || receiverIntrl.value=='' || regionIntrl.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Missing fields!";
                     error_popup.style.display="block";       
                 }
-                else if(IBANIntrl.value!='' && amountIntrl.value!='' && recieverIntrl.value!='' && regionIntrl.value!=''){
+                else if(IBANIntrl.value!='' && amountIntrl.value!='' && receiverIntrl.value!='' && regionIntrl.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Transfer made successfully!";
                     success_popup.style.display="block";
                 }
                 else{
@@ -88,17 +193,19 @@
                 
                 IBANIntrl.value='';
                 amountIntrl.value='';
-                recieverIntrl.value='';
+                receiverIntrl.value='';
                 regionIntrl.value='';
                 
             });
 
             submitBtnDom.addEventListener('click', ()=>{
 
-                if(accNumDom.value=='' || amountDom.value=='' || recieverDom.value=='' || bankNumDom.value==''){
+                if(accNumDom.value=='' || amountDom.value=='' || receiverDom.value=='' || bankNumDom.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Missing fields!";
                     error_popup.style.display="block";       
                 }
-                else if(accNumDom.value!='' && amountDom.value!='' && recieverDom.value!='' && bankNumDom.value!=''){
+                else if(accNumDom.value!='' && amountDom.value!='' && receiverDom.value!='' && bankNumDom.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Transfer made successfully!";
                     success_popup.style.display="block";
                 }
                 else{
@@ -107,17 +214,19 @@
                 
                 accNumDom.value='';
                 amountDom.value='';
-                recieverDom.value='';
+                receiverDom.value='';
                 bankNumDom.value='';
                 
             });
 
             submitBtnIntrnl.addEventListener('click', ()=>{
 
-                if(accNumIntrnl.value=='' || amountIntrnl.value=='' || recieverIntrnl.value=='' || dateIntrnl.value==''){
+                if(accNumIntrnl.value=='' || amountIntrnl.value=='' || receiverIntrnl.value=='' || dateIntrnl.value==''){
+                    error_popup.childNodes[1].childNodes[5].innerHTML = "Missing fields!";
                     error_popup.style.display="block";       
                 }
-                else if(accNumIntrnl.value!='' && amountIntrnl.value!='' && recieverIntrnl.value!='' && dateIntrnl.value!=''){
+                else if(accNumIntrnl.value!='' && amountIntrnl.value!='' && receiverIntrnl.value!='' && dateIntrnl.value!=''){
+                    success_popup.childNodes[1].childNodes[5].innerHTML = "Transfer made successfully!";
                     success_popup.style.display="block";
                 }
                 else{
@@ -126,7 +235,7 @@
                 
                 accNumIntrnl.value='';
                 amountIntrnl.value='';
-                recieverIntrnl.value='';
+                receiverIntrnl.value='';
                 dateIntrnl.value='';
                 
             });
@@ -150,102 +259,6 @@
         includeHTML('/errormsg.html', 'includedContent');
         
     </script>
-
-    <div class = "make-a-transfer-div">
-    
-    <!-- Tab links -->    
-    
-        <div class="tab">
-            <button class="tablinks" onclick="openSection(event, 'international-transfer')">International</button>
-            <button class="tablinks" id="default-opener" onclick="openSection(event, 'internal-transfer')">Internal</button>
-            <button class="tablinks" onclick="openSection(event, 'domestic-transfer')">Domestic</button>
-        </div>
-
-        <!-- Tab content -->
-        <div id="international-transfer" class="tabcontent">
-        <!-- <div id="add-account-div" class="add-account-div"> -->
-            <div class="form">
-                <div class="title">Make your international transfer here!</div>
-                
-                <div class="input-container ic1">
-                    <input id="IBAN-international" class="input" type="text" placeholder="IBAN"/>
-                </div>
-                
-                <div class="input-container ic2">
-                    <input id="amount-international" class="input" type="text" placeholder="Amount"/>
-                </div>
-                
-                <div class="input-container ic2">
-                    <input id="reciever-international" class="input" type="text" placeholder="Reciever Account no."/>
-                </div>
-
-                <div class="input-container ic2">
-                    <input id="region-international" class="input" type="text" placeholder="Region"/>
-                </div>
-
-                <button id="submit-btn-international" type="text" class="submit">submit</button>
-            </div>
-        <!-- </div> -->
-        </div>
-      
-        <div id="internal-transfer" class="tabcontent">
-        <!-- <div id="add-account-div" class="add-account-div"> -->
-            <div class="form">
-                <div class="title">Make your internal transfer here!</div>
-                
-                <div class="input-container ic1">
-                    <input id="account-no-internal" class="input" type="text" placeholder="Account No."/>
-                </div>
-                
-                <div class="input-container ic2">
-                    <input id="amount-internal" class="input" type="text" placeholder="Amount"/>
-                </div>
-                
-                <div class="input-container ic2">
-                    <input id="reciever-internal" class="input" type="text" placeholder="Reciever Account no."/>
-                </div>
-
-                <div class="input-container ic2">
-                    <input id="arrival-date-internal" class="input" type="date" placeholder="Arrival Date"/>
-                </div>
-
-                <button id="submit-btn-internal" type="text" class="submit">submit</button>
-            </div>
-        <!-- </div> -->
-        </div>
-
-        <div id="domestic-transfer" class="tabcontent">
-            <!-- <div id="add-account-div" class="add-account-div"> -->
-                <div class="form">
-                    <div class="title">Make your Domestic transfer here!</div>
-                    
-                    <div class="input-container ic1">
-                        <input id="account-no-domestic" class="input" type="text" placeholder="Account No."/>
-                    </div>
-                    
-                    <div class="input-container ic2">
-                        <input id="amount-domestic" class="input" type="text" placeholder="Amount"/>
-                    </div>
-                    
-                    <div class="input-container ic2">
-                        <input id="reciever-domestic" class="input" type="text" placeholder="Reciever Account no."/>
-                    </div>
-
-                    <div class="input-container ic2">
-                        <input id="bank-no-domestic" class="input" type="text" placeholder="Bank no."/>
-                    </div>
-
-                    <button id="submit-btn-domestic" type="text" class="submit">submit</button>
-                </div>
-            <!-- </div> -->
-        </div>
-    </div>
-
-   
-  
-    <div id="includedFooter">
-        
-    </div>
     
 </body>
 </html>

@@ -36,9 +36,11 @@
             
             <br>
             <br>
-            <a href="#emp-report" class="about-us-btn">View your status</a>
+            <a href="#emp-report" class="about-us-btn">View your stats</a>
             <br>
-            <a href="#make-ann" class="about-us-btn">Make An Announcement!</a>
+            <a href="#make-ann" class="about-us-btn">Make an Announcement!</a>
+            <!-- <br>
+            <a href="#make-ann-banker" class="about-us-btn">Notify Bankers!</a> -->
         </div>
     </section>
 
@@ -94,13 +96,28 @@
         <form>
             <div id="form-ann" class="form-group">
               <label id="inp-label" class="form-label" for="exampleInputEmail1">Message Content</label>
-              <input type="text" class="form-control w-50 p-4" id="exampleInputEmail1" placeholder="Enter the message here." required>
+              <input id="message-content" type="text" class="form-control w-50 p-4" id="exampleInputEmail1" placeholder="Enter the message here." required>
             </div>
             
-            <button type="submit" class="notify-btn btn primary-btn btn-dark p-3">Notify All Clients</button>
+            <div class="notifyButtons">
+              <button id="notifyClients" type="submit" class="notify-btn btn primary-btn btn-dark p-3">Notify All Clients</button>
+              <button id="notifyBankers" type="submit" class="notify-btn btn primary-btn btn-dark p-3">Notify All Bankers</button>
+            </div>
           
         </form>
     </section>
+
+    <!-- <section id="make-ann-banker" class="make-announcement">
+      <form>
+          <div id="form-ann-banker" class="form-group">
+            <label id="inp-label-banker" class="form-label" for="exampleInputEmail1">Message Content</label>
+            <input id="message-content-banker" type="text" class="form-control w-50 p-4" id="exampleInputEmail1" placeholder="Enter the message here." required>
+          </div>
+          
+          <button type="submit" class="notify-btn btn primary-btn btn-dark p-3">Notify All Bankers</button>
+        
+      </form>
+  </section> -->
 
 
     <div id="includedFooter">
@@ -114,6 +131,7 @@
           .then(data => {
             const targetElement = document.getElementById(targetId);
             targetElement.innerHTML = data;            
+            targetElement.childNodes[0].childNodes[1].childNodes[1].innerHTML = '';
           })
           .catch(error => {
             console.error('Error:', error);
@@ -137,19 +155,32 @@
             //execute my script (starts here)
             
             const inpForm = document.getElementById("form-ann");
-            const inpBtn = submit = document.querySelector(".notify-btn");
             const inpLabel = document.getElementById("inp-label");
+            const inpMessage = document.getElementById("message-content");
+            const inpBtnClient = document.getElementById("notifyClients");
+            const inpBtnBanker = document.getElementById("notifyBankers");
             
-            const success_popup=document.getElementById('success');
-            const error_popup =document.getElementById('error');
-            const s_close=document.getElementById('s_button');
-            const e_close=document.getElementById('e_button');
+            const success_popup = document.getElementById('success');
+            const error_popup = document.getElementById('error');
+            const s_close = document.getElementById('s_button');
+            const e_close = document.getElementById('e_button');
             
-            console.log(success_popup);
-            inpBtn.addEventListener('click', (e)=>{
-                e.preventDefault();
-                success_popup.childNodes[1].childNodes[5].innerHTML = "Announcement made Successfully!"
-                success_popup.style.display="block";
+            inpBtnClient.addEventListener('click', (e)=>{
+                if (inpMessage.value != '') {
+                  e.preventDefault();
+                  success_popup.childNodes[1].childNodes[5].innerHTML = "Announcement made Successfully!"
+                  success_popup.style.display="block";
+                  inpMessage.value = '';
+                }
+            })
+            
+            inpBtnBanker.addEventListener('click', (e)=>{
+                if (inpMessage.value != '') {
+                  e.preventDefault();
+                  success_popup.childNodes[1].childNodes[5].innerHTML = "Announcement made Successfully!"
+                  success_popup.style.display="block";
+                  inpMessage.value = '';
+                }
             })
             
 

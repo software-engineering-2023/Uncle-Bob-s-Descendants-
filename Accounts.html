@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/Accounts.css" />
+    <link rel="stylesheet" href="css/bankerIssues.css">
     <link rel="stylesheet" href="css/clientHomeStyle.css">
     <link rel="stylesheet" href="css/errormsg.css">
-    <title>Accounts</title>
+    <title>OLtA Bank</title>
 </head>
 
 <div id="includedHeader">
@@ -37,25 +42,33 @@
                     <td>125279</td>
                     <td>6000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
-                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
+                    <td><button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        Close Account
+                      </button></td>
                 </tr>
                 <tr>
                     <td>176543</td>
                     <td>100000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
-                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
+                    <td><button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        Close Account
+                      </button></td>
                 </tr>
                 <tr>
                     <td>650934</td>
                     <td>10000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
-                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
+                    <td><button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        Close Account
+                      </button></td>
                 </tr>
                 <tr>
                     <td>543098</td>
                     <td>7000</td>
                     <td class="transactions-link"> <a href="Transactions.html">View Details</a> </td>
-                    <td><button class="delete-btn btn btn-primary btn-danger">Close Account</button></td>
+                    <td><button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        Close Account
+                      </button></td>
                 </tr>
                 <!-- and so on... -->
             </tbody>
@@ -71,10 +84,6 @@
         <div class="form">
             <div class="title">Create an account!</div>
             
-            <div class="input-container ic1">
-                <input id="account-name" class="input" type="text" placeholder="Account Name"/>
-            </div>
-            
             <div class="input-container ic2">
                 <input id="account-type" class="input" type="text" placeholder="Account Type"/>
             </div>
@@ -82,8 +91,33 @@
             <div class="input-container ic2">
                 <input id="national-id" class="input" type="text" placeholder="National ID"/>
             </div>
+            
+            <div class="input-container ic1">
+                <input id="account-name" class="input" type="text" placeholder="Starting Amount"/>
+            </div>
 
             <button id="submit-btn" type="text" class="submit">submit</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Confirmation Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            Are you sure you want to close your account?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Keep it</button>
+            <button id="close-account" type="button" class="btn btn-primary btn-danger" data-dismiss="modal">Close the account</button>
+            </div>
+        </div>
         </div>
     </div>
 
@@ -120,7 +154,7 @@
             targetElement.innerHTML = data;
             
             //execute my script (starts here)
-            const deleteBtns = document.querySelectorAll('.delete-btn');
+            const deleteBtn = document.getElementById('close-account');
 
             const submitBtn = document.getElementById('submit-btn');
             const accName = document.getElementById('account-name');
@@ -132,13 +166,17 @@
             const s_close=document.getElementById('s_button');
             const e_close=document.getElementById('e_button');
             
-            for(var deleteBtn of deleteBtns){
-                deleteBtn.addEventListener('click', ()=>{
-                    success_popup.childNodes[1].childNodes[5].innerHTML = "Account Closed successfully!"
-                    success_popup.style.display="block";
-                });
-            }
+            // for(var deleteBtn of deleteBtns){
+            //     deleteBtn.addEventListener('click', ()=>{
+            //         success_popup.childNodes[1].childNodes[5].innerHTML = "Account Closed successfully!"
+            //         success_popup.style.display="block";
+            //     });
+            // }
 
+            deleteBtn.addEventListener('click', ()=>{
+                success_popup.childNodes[1].childNodes[5].innerHTML = "Account Closed successfully!"
+                success_popup.style.display="block";
+            });
             
             submitBtn.addEventListener('click', ()=>{
 

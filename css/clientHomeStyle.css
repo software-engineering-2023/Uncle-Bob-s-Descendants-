@@ -244,3 +244,17 @@ section {
         color: #3b33d3;
         font-size: 12px;
     }
+
+    .back-btn{
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-right: 0.5em;
+        color: black;
+        font-weight: bold;
+    }
+    
+    .back-btn:hover{
+        background-color: #d1d3eb;
+        border-radius: 12px;
+    }
