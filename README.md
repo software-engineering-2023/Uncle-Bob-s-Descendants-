@@ -6,13 +6,20 @@ The system provides its servies to three types of users:
 
 * Client
 
-        A client can register, login with his/her credentials, navigate through the entire website, preform basic CRUD operations on his/her accounts, credi cards, loans, etc, and contact the bank for various types of issues 
+        A client can register, login with his/her credentials,
+        navigate through the entire website, preform basic CRUD 
+        operations on his/her accounts, credi cards, loans, etc,
+        and contact the bank for various types of issues 
 * Banker
 
-        A banker can login with his/her credential, view his/her performance review and view the clients' banking issues to resolve them.
+        A banker can login with his/her credential, view 
+        his/her performance review and view the clients'
+        banking issues to resolve them.
 * Admin
 
-        An admin can also login, view performance reviews, make announcements and view the clients' technical issues to resolve them.
+        An admin can also login, view performance reviews,
+        make announcements and view the clients' technical
+        issues to resolve them.
 
 and it also handles accessibility issues where visually impaired clients can still use the website.
 
@@ -29,7 +36,7 @@ ___
 3. The following are the login credentials used for testing purposes:
 
     | Email          | Password       |
-    |  -----------   |  ------------  |
+    | :------------: | :------------: |
     | client@g.com   | client123      |
     | banker@g.com   | banker123      |
     | admin@g.com    | admin123       |
